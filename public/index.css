@@ -1,0 +1,166 @@
+body {
+  font-family: 'Montserrat';
+  scroll-behavior: smooth;
+  background-color: #D3D3D3 !important;
+
+}
+
+.carousel {
+  width: 100%;
+  height: 66.6vh;
+}
+
+.img-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.img-container>img {
+  position: absolute;
+  width: 1%;
+  height: 100%;
+}
+
+
+.registerPageContainer {
+  height: 80vh;
+}
+
+
+#alreadyhave {
+  color: black;
+}
+
+#navBeforeLogin .btn {
+  font-size: 0.6rem;
+  padding: 1rem 1rem;
+}
+
+#navBeforeLogin .btn-dark {
+  margin-right: 0.5rem;
+}
+
+.fade-in {
+  animation: fadein 1s ease forwards;
+}
+
+.fade-out {
+  animation: fadein 1s ease forwards reverse;
+}
+
+/* Create animation called fadein */
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* form inputs */
+.form-floating {
+  position: relative;
+}
+
+.form-floating input,
+.form-floating textarea {
+  padding: 1rem;
+  width: 100%;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.form-floating label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+  color: #6c757d;
+}
+
+.form-floating input:focus,
+.form-floating textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+.form-floating input:not(:placeholder-shown)+label,
+.form-floating textarea:not(:placeholder-shown)+label {
+  transform: translateY(-1.5rem) scale(0.8);
+  opacity: 0.5;
+}
+
+.btn-lg:hover {
+  transform: scale(1.1);
+}
+
+.navbar-logo {
+  max-width: 5.5rem;
+  max-height: 11vh;
+  object-fit: contain;
+  margin-right: 2.5rem;
+}
+
+.title1 {
+  text-align: center;
+  margin-top: 2.5rem;
+  font-family: 'Niconne', cursive;
+  font-size: 2.8rem;
+}
+
+
+
+.navbar-brand {
+  font-size: 1.8rem !important;
+  color: black !important;
+  margin-bottom: 0.3rem !important;
+  font-family: 'Niconne', cursive !important;
+}
+
+.nav-link {
+  font-size: 1.02rem !important;
+}
+
+/* back to top button */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.8rem;
+  z-index: 99;
+  border: none;
+  background-color: #f2F2F2;
+  box-shadow: 0px 0px 0.25rem 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+
+button#myBtn svg {
+  width: 1.5rem;
+  height: 2.9vh;
+  vertical-align: middle;
+
+}
+
+button#myBtn:hover {
+  transform: scale(1.2);
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(9.3rem);
+  opacity: 0;
+  transition: 0.8s all ease;
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 1;
+}

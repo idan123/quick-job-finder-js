@@ -131,18 +131,21 @@ window.addEventListener("load", () => {
     if (editJobPopupImgFile.files.length > 0) {
       requiredFields.push("editJobPopupImgFile");
     }
-    let imgUrl = selectedJob.imgUrl;
+    let imgUrl = null;
+    if (selectedJob && selectedJob.imgUrl) {
+      imgUrl = selectedJob.imgUrl;
+    }
     if (editJobPopupImgFile.files.length > 0) {
       imgUrl = URL.createObjectURL(editJobPopupImgFile.files[0]);
       requiredFields.push("editJobPopupImgFile");
     }
+
 
     for (let field of requiredFields) {
       if (document.getElementById(field).value === "") {
         return;
       }
     }
-
     selectedJob.imgUrl = imgUrl;
     selectedJob.title = editJobPopupTitle.value;
     selectedJob.user = editJobPopupUser.value;

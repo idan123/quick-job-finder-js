@@ -72,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
         <button type="button" class="btn" id="filterSavedBtn">
           <i class="far fa-heart"></i>
         </button>
-        
         <button type="button" class="btn btn-info" id="jobsGalleryBtn">
           <i class="bi bi-grid"></i>
         </button>
@@ -109,7 +108,7 @@ import { initPopup } from "../components/Popup.js";
 let jobRequestsArr, originalJobRequestsArr;
 let displayNow; // display that we can see now
 /* btns */
-let jobsListBtn, jobsGalleryBtn, jobsCarouselBtn, filterSavedBtn;
+let jobsListBtn, jobsGalleryBtn, filterSavedBtn;
 
 /* displays */
 let jobsList, jobsGallery;
@@ -147,7 +146,6 @@ const initializeElements = () => {
 const showOrig = () => {
   updateJobRequestsList(originalJobRequestsArr);
   updateJobRequestsGallery(originalJobRequestsArr);
-  updateJobRequestsCarousel(originalJobRequestsArr);
 }
 
 const filterSavedJobs = () => {
@@ -164,7 +162,6 @@ const filterSavedJobs = () => {
     savedJobs = JSON.parse(savedJobs);
     updateJobRequestsList(savedJobs);
     updateJobRequestsGallery(savedJobs);
-    updateJobRequestsCarousel(savedJobs);
     filterSavedBtn.innerHTML = `<i class="fas fa-heart"></i>`;
   }
 }
@@ -180,10 +177,6 @@ const initializeBtns = () => {
   });
   jobsGalleryBtn.addEventListener("click", () => {
     displayToDisplay(jobsGallery);
-    showOrig();
-  });
-  jobsCarouselBtn.addEventListener("click", () => {
-    displayToDisplay(jobsCarousel);
     showOrig();
   });
   document.getElementById("jobsSortASCBtn").addEventListener("click", () => {
@@ -218,7 +211,6 @@ const displayToDisplay = (toDisplay) => {
 const updateDisplays = () => {
   updateJobRequestsList(jobRequestsArr);
   updateJobRequestsGallery(jobRequestsArr);
-  updateJobRequestsCarousel(jobRequestsArr);
 };
 
 const saveToLocalStorage = (arrToSave) => {

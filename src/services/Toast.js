@@ -13,12 +13,10 @@ const showToast = (msg, success = true) => {
   `;
   toast.appendChild(toastMsg);
 
-  // Remove message when animation ends
   toastMsg.addEventListener("animationend", () => {
     toastMsg.remove();
   });
 
-  // Start animation
   setTimeout(() => {
     toastMsg.classList.add("animate-in");
   }, 100);

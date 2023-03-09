@@ -1,6 +1,6 @@
 import PAGES from "../models/pageModel.js";
 
-/* Our pages */
+/* pages */
 const PAGES_ARRAY = [
   {
     id: PAGES.HERO,
@@ -44,11 +44,11 @@ function handlePageChange(pageToDisplay) {
   if (selectedPage) {
     selectedPage.element.classList.remove("d-none");
     selectedPage.element.classList.add("d-block");
-    window.scrollTo(0, 0); // Add this line to scroll to the top of the page
+    window.scrollTo(0, 0);
   } else {
     PAGES_ARRAY.find((page) => page.id === PAGES.PAGE404).element.classList.remove("d-none");
     PAGES_ARRAY.find((page) => page.id === PAGES.PAGE404).element.classList.add("d-block");
-    window.scrollTo(0, 0); // Add this line to scroll to the top of the page
+    window.scrollTo(0, 0);
   }
 }
 

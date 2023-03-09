@@ -11,10 +11,6 @@ const PAGES_ARRAY = [
     element: document.getElementById(PAGES.JOBS)
   },
   {
-    id: PAGES.ABOUT,
-    element: document.getElementById(PAGES.ABOUT)
-  },
-  {
     id: PAGES.CONTACT,
     element: document.getElementById(PAGES.CONTACT)
   },
@@ -33,10 +29,6 @@ const PAGES_ARRAY = [
   {
     id: PAGES.PAGE404,
     element: document.getElementById(PAGES.PAGE404)
-  },
-  {
-    id: PAGES.SAVEDJOBS,
-    element: document.getElementById(PAGES.SAVEDJOBS)
   },
 ];
 

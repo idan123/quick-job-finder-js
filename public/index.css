@@ -5,24 +5,6 @@ body {
 
 }
 
-.carousel {
-  width: 100%;
-  height: 66.6vh;
-}
-
-.img-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.img-container>img {
-  position: absolute;
-  width: 1%;
-  height: 100%;
-}
-
-
 .registerPageContainer {
   height: 80vh;
 }

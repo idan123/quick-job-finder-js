@@ -61,7 +61,6 @@ const createItem = (
 
   let index = jobRequestsArr.findIndex((job) => job.id === id);
 
-  // Add the "reveal" class for the third item and up
   let revealClass = "";
   if (index >= 2) {
     revealClass = "reveal";

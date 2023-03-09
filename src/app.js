@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initializeNavbar();
 
   const navHeroLink = document.getElementById("nav-hero-link");
-  const navAboutLink = document.getElementById("nav-about-link");
   const navContactLink = document.getElementById("nav-contact-link")
   const navLoginLinks = document.querySelectorAll('.nav-login-page');
   const navRegisterLinks = document.querySelectorAll('.nav-register-page');
@@ -32,11 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
   navHeroLink.addEventListener("click", function () {
     handlePageChange(PAGES.HERO);
   });
+
   navContactLink.addEventListener("click", function () {
     handlePageChange(PAGES.CONTACT);
-  });
-  navAboutLink.addEventListener("click", function () {
-    handlePageChange(PAGES.ABOUT);
   });
 
   navRegisterLinks.forEach(link => {

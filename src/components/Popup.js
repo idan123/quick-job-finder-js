@@ -1,5 +1,7 @@
 import Job from "../models/Job.js";
 import getNextId from "../utils/getNextId.js";
+import showToast from "../services/Toast.js";
+
 
 const editJobPopupContent = `
 <div class="popup-wrapper d-flex justify-content-center align-items-center d-none" id="editJobPopup">
@@ -119,43 +121,48 @@ window.addEventListener("load", () => {
   });
 
   document.getElementById("editJobPopupSaveBtn").addEventListener("click", () => {
-    const requiredFields = [
-      "editJobPopupTitle",
-      "editJobPopupUser",
-      "editJobPopupLocation",
-      "editJobPopupDate",
-      "editJobPopupHours",
-      "editJobPopupSalary",
-      "editJobPopupDescription",
-    ];
-    if (editJobPopupImgFile.files.length > 0) {
-      requiredFields.push("editJobPopupImgFile");
-    }
-    let imgUrl = null;
-    if (selectedJob && selectedJob.imgUrl) {
-      imgUrl = selectedJob.imgUrl;
-    }
-    if (editJobPopupImgFile.files.length > 0) {
-      imgUrl = URL.createObjectURL(editJobPopupImgFile.files[0]);
-      requiredFields.push("editJobPopupImgFile");
-    }
+    if (selectedJob) {
+      const requiredFields = [
+        "editJobPopupTitle",
+        "editJobPopupUser",
+        "editJobPopupLocation",
+        "editJobPopupDate",
+        "editJobPopupHours",
+        "editJobPopupSalary",
+        "editJobPopupDescription",
+      ];
+      let imgUrl = "";
+      if (selectedJob && selectedJob.imgUrl) {
+        imgUrl = selectedJob.imgUrl;
+      }
+      if (editJobPopupImgFile.files.length > 0) {
+        imgUrl = URL.createObjectURL(editJobPopupImgFile.files[0]);
+        requiredFields.push("editJobPopupImgFile");
+      }
 
-
-    for (let field of requiredFields) {
-      if (document.getElementById(field).value === "") {
+      if (imgUrl === "") {
+        showToast(`Please fill in all required fields`);
         return;
       }
+
+      for (let field of requiredFields) {
+        if (document.getElementById(field).value === "") {
+          showToast(`Please fill in all required fields`);
+          return;
+        }
+      }
+
+      selectedJob.imgUrl = imgUrl;
+      selectedJob.title = editJobPopupTitle.value;
+      selectedJob.user = editJobPopupUser.value;
+      selectedJob.location = editJobPopupLocation.value;
+      selectedJob.date = editJobPopupDate.value;
+      selectedJob.hours = editJobPopupHours.value;
+      selectedJob.salary = editJobPopupSalary.value;
+      selectedJob.description = editJobPopupDescription.value;
+      editJob(selectedJob);
+      hidePopup();
     }
-    selectedJob.imgUrl = imgUrl;
-    selectedJob.title = editJobPopupTitle.value;
-    selectedJob.user = editJobPopupUser.value;
-    selectedJob.location = editJobPopupLocation.value;
-    selectedJob.date = editJobPopupDate.value;
-    selectedJob.hours = editJobPopupHours.value;
-    selectedJob.salary = editJobPopupSalary.value;
-    selectedJob.description = editJobPopupDescription.value;
-    editJob(selectedJob);
-    hidePopup();
   });
 });
 

@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="container">
       <h1 class="text-center mb-5 wow fadeInUp">Job Offers</h1>
       <div>
-      <button class="nav-link d-flex justify-content-end " id="addJobBtn" style="font-size: 10rem;" type="button">
+      <button class="nav-link d-flex justify-content-end d-none" id="addJobBtn" style="font-size: 10rem;" type="button">
         <i class="fa-solid fa-plus addJob"></i>
       </button>
       </div>
@@ -190,9 +190,9 @@ const initializeBtns = () => {
     sortJobs();
   });
   const addJobBtn = document.getElementById("addJobBtn");
-  if (checkIfConnected()) {
+  if (checkIfConnected() && checkIfAdmin()) {
     addJobBtn.classList.remove("d-none");
-    addJobBtn.classList.remove("d-block");
+    addJobBtn.classList.add("d-block");
   }
   addJobBtn.addEventListener("click", () => {
     showPopup();
